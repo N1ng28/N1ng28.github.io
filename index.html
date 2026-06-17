@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>파일 이름 일괄 변경기 · Batch File Renamer</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- 파일을 zip으로 묶어서 내려받기 위한 라이브러리 (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="logo">📁 Renamer</div>
+      <nav>
+        <a href="index.html" class="active">도구</a>
+        <a href="resume.html">자기소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>파일 이름 일괄 변경기</h1>
+      <p class="subtitle">
+        여러 파일의 이름을 한 번에 바꿔서 다시 내려받는 작은 웹 앱입니다.<br />
+        모든 처리는 <strong>내 컴퓨터(브라우저) 안에서만</strong> 이루어지며, 어떤 파일도 서버로 올라가지 않습니다.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>1. 파일 선택</h2>
+      <label class="filepick">
+        <input type="file" id="files" multiple />
+        <span>여기를 눌러 파일 여러 개를 선택하세요</span>
+      </label>
+    </section>
+
+    <section class="card">
+      <h2>2. 규칙 설정</h2>
+      <div class="rules">
+        <div class="rule">
+          <label>앞에 붙일 글자 (접두사)</label>
+          <input type="text" id="prefix" placeholder="예: 2026_" />
+        </div>
+        <div class="rule">
+          <label>뒤에 붙일 글자 (접미사, 확장자 앞)</label>
+          <input type="text" id="suffix" placeholder="예: _final" />
+        </div>
+        <div class="rule">
+          <label>찾을 글자</label>
+          <input type="text" id="find" placeholder="예: IMG" />
+        </div>
+        <div class="rule">
+          <label>바꿀 글자</label>
+          <input type="text" id="replace" placeholder="예: 사진" />
+        </div>
+        <div class="rule">
+          <label>순번 매기기</label>
+          <select id="number">
+            <option value="none">사용 안 함</option>
+            <option value="prefix">이름 앞에 번호 (01_, 02_ ...)</option>
+            <option value="suffix">이름 뒤에 번호 (_01, _02 ...)</option>
+          </select>
+        </div>
+        <div class="rule">
+          <label>대소문자</label>
+          <select id="case">
+            <option value="none">그대로 두기</option>
+            <option value="lower">전부 소문자</option>
+            <option value="upper">전부 대문자</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>3. 미리보기</h2>
+      <p class="hint">규칙을 바꾸면 아래 결과가 자동으로 업데이트됩니다.</p>
+      <div class="table-scroll">
+        <table id="preview">
+          <thead>
+            <tr><th>#</th><th>원래 이름</th><th>→</th><th>바뀐 이름</th></tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="4" class="empty">아직 선택한 파일이 없습니다.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <button id="download" disabled>📦 바뀐 파일 ZIP으로 내려받기</button>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>이시녕 · 건국대학교 문화디자인학과 · 2026 과제</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

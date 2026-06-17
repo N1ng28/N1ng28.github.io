@@ -1,0 +1,196 @@
+:root {
+  --bg: #f6f5f2;
+  --card: #ffffff;
+  --ink: #1f1d1a;
+  --muted: #8a857d;
+  --accent: #c8744a;
+  --accent-soft: #f3e3d8;
+  --line: #e7e3dc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 헤더 */
+.site-header {
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+.logo { font-weight: 700; font-size: 18px; }
+.site-header nav a {
+  margin-left: 18px;
+  text-decoration: none;
+  color: var(--muted);
+  font-weight: 600;
+  padding-bottom: 4px;
+}
+.site-header nav a.active,
+.site-header nav a:hover {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+/* 히어로 */
+.hero {
+  text-align: center;
+  padding: 48px 0 24px;
+}
+.hero h1 { font-size: 32px; margin: 0 0 12px; }
+.subtitle { color: var(--muted); margin: 0; }
+
+/* 카드 */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+.card h2 { margin: 0 0 16px; font-size: 18px; }
+.hint { color: var(--muted); font-size: 14px; margin-top: -8px; }
+
+/* 파일 선택 */
+.filepick {
+  display: block;
+  border: 2px dashed var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+  transition: 0.15s;
+}
+.filepick:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); }
+.filepick input { display: none; }
+
+/* 규칙 입력칸 */
+.rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.rule label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--muted);
+}
+.rule input, .rule select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 14px;
+  background: #fff;
+}
+.rule input:focus, .rule select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* 표 */
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-weight: 600; }
+td.arrow, th:nth-child(3) { text-align: center; color: var(--accent); }
+td.empty { text-align: center; color: var(--muted); padding: 24px; }
+
+/* 버튼 */
+button {
+  margin-top: 18px;
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.15s;
+}
+button:hover:not(:disabled) { background: #b5633c; }
+button:disabled { background: #d8d3cc; cursor: not-allowed; }
+
+/* 푸터 */
+.site-footer {
+  text-align: center;
+  padding: 32px 0;
+  color: var(--ink);
+  font-size: 14px;
+}
+.muted { color: var(--muted); }
+
+/* 자기소개 페이지 */
+.avatar {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+table.info { font-size: 15px; }
+table.info th {
+  width: 110px;
+  color: var(--muted);
+  vertical-align: top;
+  white-space: nowrap;
+}
+table.info td { color: var(--ink); }
+table.info a { color: var(--accent); text-decoration: none; }
+table.info a:hover { text-decoration: underline; }
+
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li {
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+  margin-bottom: 4px;
+}
+.timeline .period { display: block; font-weight: 700; }
+.timeline .desc { color: var(--muted); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 모바일 */
+@media (max-width: 560px) {
+  .rules { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 26px; }
+}
